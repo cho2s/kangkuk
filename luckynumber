@@ -1,0 +1,24 @@
+import random
+# 1~45 숫자 리스트 만들기
+list = []
+i = 1
+while i < 46:
+    list += [i]
+    i += 1
+# 원하는 게임수 입력 및 1~45 숫자 중 6개 숫자 랜덤 뽑기
+print("+++++++++행운게임+++++++++")
+print("원하는 장수와 랜덤 게임수 입력하세요.")
+x = int(input("장수 입력:"))
+y = int(input("게임수 입력:"))
+z = int(input("제외하고 싶은 숫자 : "))
+
+for j in range(1,x+1):
+    if y > 5 or y <= 0 :
+        print("최소 1, 최대 5게임 입니다.")
+        break
+    else:
+        for k in range(y) :
+            luckylist = random.sample(list, k=6)   #랜덤뽑기
+            luckylist.sort()                       #숫자올림차순
+            print("{}번째장, {}번 게임 : {}".format(j,k+1,luckylist))
+        print()
